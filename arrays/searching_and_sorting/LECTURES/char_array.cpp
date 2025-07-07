@@ -113,9 +113,6 @@ int main(){
     // cin >> arr;
     // toUpperCase(arr);
     // cout << arr << endl;
-
-    
-    // Q6 -> 
     
     return 0;
 }
