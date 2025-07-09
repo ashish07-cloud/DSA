@@ -1,4 +1,6 @@
 #include <iostream>
+#include<vector>
+#include<algorithm>
 #include <string>
 
 using namespace std;
@@ -64,6 +66,35 @@ bool isPalindrome(string str){
     
 }
 
+int minimumTime(vector<string>& timePoints) {
+    vector<int> minutes;
+
+    // Convert each time to minutes
+    for (int i = 0; i < timePoints.size(); i++) {
+        string curr = timePoints[i];
+        int hrs = stoi(curr.substr(0, 2));
+        int min = stoi(curr.substr(3, 2));
+        int totalMinutes = 60 * hrs + min;
+        minutes.push_back(totalMinutes);
+    }
+
+    // Sort the time in minutes
+    sort(minutes.begin(), minutes.end());
+
+    // Find minimum difference between adjacent times
+    int mini = INT_MAX;
+    for (int i = 1; i < minutes.size(); i++) {
+        int diff = minutes[i] - minutes[i - 1];
+        mini = min(mini, diff);
+    }
+
+    // Check circular difference (last -> first across midnight)
+    int circularDiff = (minutes[0] + 1440) - minutes[minutes.size() - 1];
+    mini = min(mini, circularDiff);
+
+    return mini;
+}
+
 int main() {
     // Q1 - LEET-CODE - 1407 -> REMOVE ALL ADJACENT DUPLICATES IN STRING 
     // string str;
@@ -87,14 +118,17 @@ int main() {
 
 
     // Q.3 - LEET - CODE - 680 -> VALID PALINDROME || -> returns true if the string can be made palindrome by removing a letter 
-    string str;
-    cout << " Enter the string " << endl;
-    cin >> str;
+    // string str;
+    // cout << " Enter the string " << endl;
+    // cin >> str;
 
-    bool result = isPalindrome(str);
-    cout << "Result: " << result << endl;
+    // bool result = isPalindrome(str);
+    // cout << "Result: " << result << endl;
 
+    // Q.4 - LEET-CODE - 539 -> MINIMUM TIME DIFFERENCE
 
-
+    vector<string> timePoints = {"23:59", "05:00", "12:30"};
+    cout << "Minimum time difference: " << minimumTime(timePoints) << " minutes" << endl;
+    
     return 0;
 }
