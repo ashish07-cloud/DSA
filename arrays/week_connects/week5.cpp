@@ -20,12 +20,21 @@ int main(){
 
     // cout << s << endl;
 
-    vector num{2, 1, 5, 3, 6};
-    sort(num.begin(), num.end(), cmp);
-    for ( auto i:num)
-    {
-        cout << i << " ";
-    }
+    // vector num{2, 1, 5, 3, 6};
+    // sort(num.begin(), num.end(), cmp);
+    // for ( auto i:num)
+    // {
+    //     cout << i << " ";
+    // }
+
+    // map 
+    // map<int , char> m;
+
+    // m[0] = 'a';
+    // m[9] = 'b';
+    // m[29] = 'c';
+
+    // cout << m[29] << endl;
 
     
 
