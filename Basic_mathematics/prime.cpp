@@ -41,6 +41,10 @@ int f(int x, int *py, int **ppz){
     return x+y+z;
 }
 
+void increment(int **p){
+    (**p)++;
+}
+
 int main(){
 
     // vector<bool> sieve = Sieve(25);
@@ -78,15 +82,18 @@ int main(){
     // a = &b;
     // cout << f(c, b, a);
 
-    int ***r, **q, *p, i = 8;
-    p = &i;
-    (*p)++;
-    q = &p;
-    (**q)++;
-    r = &q;
-    cout << *p << " "  << **q << " " << ***r << endl;
+    // int ***r, **q, *p, i = 8;
+    // p = &i;
+    // (*p)++;
+    // q = &p;
+    // (**q)++;
+    // r = &q;
+    // cout << *p << " "  << **q << " " << ***r << endl;
 
-
+    int num = 10;
+    int *ptr = &num;
+    increment(&ptr);
+    cout << num << endl;
     
 
 
