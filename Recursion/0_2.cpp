@@ -50,16 +50,60 @@ void findMin(int arr[], int n, int i, int &mini){
     
 }
 
-bool findKey(string str, int n, int i, char key){
-    if ( i >= n) return false;
+// if to found the key is either in the string or not 
+// bool findKey(string str, int n, int i, char key){
+//     if ( i >= n) return false;
 
-    if( str[i] == key){
-        return true;
+//     if( str[i] == key){
+//         return true;
+//     }
+
+//     return findKey(str, n, i+1, key);
+    
+// }
+
+
+// if to found at which index the key is present 
+// int findKey(string str, int n, int i, char key){
+//     if ( i >= n) return -1;
+
+//     if( str[i] == key){
+//         return i;
+//     }
+
+//     return findKey(str, n, i+1, key);
+    
+// }
+
+// if we have to store the index of the key in the array 
+// int findKey(string str, int n, int i, char key, vector<int> &ans, int count ){
+//     if ( i >= n) return -1;
+
+//     if( str[i] == key){
+//         ans.push_back(i);
+//         // return i;
+//         count++;
+//     }
+
+//     return findKey(str, n, i+1, key, ans);
+    
+// }
+
+// printing the digits of a number 
+void printDigits(int n){
+    if ( n == 0)
+    {
+        return;
     }
 
-    return findKey(str, n, i+1, key);
+    int newValueofN = n / 10;
+    printDigits(newValueofN);
+
+    int digit = n % 10;
+    cout << digit << " ";
     
 }
+
 
 int main(){
 
@@ -93,13 +137,29 @@ int main(){
 
 
     // finding key in a  string 
-    string str = "ashish";
-    int n = str.length();
+    // string str = "ashish";
+    // int n = str.length();
 
-    char key = 'h';
-    int i = 0;
-    bool ans = findKey(str, n, i, key);
-    cout << "Key is present or not " << ans << endl;
+    // char key = 'h';
+    // int i = 0;
+    // int count  = 0;
+    // vector<int> ans;
+    // findKey(str, n, i, key, ans, count);
+    // // cout << "found at index " << ans << endl;
+
+    // cout << "printing ans" << endl;
+    // for (int i = 0; i < ans.size(); i++)
+    // {
+    //     cout << ans[i] << " ";
+    // }
+    // cout << endl;
+
+    // printing all the digits of a number 
+    int n = 647;
+
+    printDigits(n);
+    
+    
 
 
     return 0;
