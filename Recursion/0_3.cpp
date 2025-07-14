@@ -34,6 +34,22 @@ int binarySearch(vector<int>& arr, int start, int end, int target){
     return arr[mid] < target ? binarySearch(arr, mid+1, end, target) : binarySearch(arr, start, mid-1, target);
 }
 
+void printSubsequence(string str, string output , int i){
+    if (i >= str.length())
+    {
+        cout << output << endl;
+        return;
+    }
+
+    // when excluding 
+    printSubsequence(str, output, i+1);
+
+    // when the string is included
+    output.push_back(str[i]);
+    printSubsequence(str, output, i+1);
+    
+}
+
 int main(){
 
     // check wheather a array is sorted or not 
@@ -52,15 +68,24 @@ int main(){
     
 
     // applying binary search using recursion 
-    vector<int> arr{10, 20, 30, 35, 56, 78};
-    int n = arr.size();
-    int start = 0;
-    int end = n-1;
-    int target = 78;
+    // vector<int> arr{10, 20, 30, 35, 56, 78};
+    // int n = arr.size();
+    // int start = 0;
+    // int end = n-1;
+    // int target = 78;
 
-    int ans = binarySearch(arr, start, end, target);
+    // int ans = binarySearch(arr, start, end, target);
 
-    cout << " Answer is at index " << ans << endl;
+    // cout << " Answer is at index " << ans << endl;
+
+
+    // SUBSEQUENCE OF A STRING 
+    string str = "abcd";
+    string output = "";
+    int i = 0;
+
+    printSubsequence(str, output , i);
+    return 0;
 
     
 
