@@ -155,7 +155,7 @@ int main(){
     // cout << endl;
 
     // printing all the digits of a number 
-    int n = 647;
+    int n = 0647;
 
     printDigits(n);
     
