@@ -46,9 +46,19 @@ void findMin(int arr[], int n, int i, int &mini){
         mini = min(arr[i], mini);
     }
 
-findMin(arr, n, i+1, mini);
+    findMin(arr, n, i+1, mini);
     
+}
 
+bool findKey(string str, int n, int i, char key){
+    if ( i >= n) return false;
+
+    if( str[i] == key){
+        return true;
+    }
+
+    return findKey(str, n, i+1, key);
+    
 }
 
 int main(){
@@ -70,16 +80,26 @@ int main(){
 
 
     // finding maximum number in a array 
-    int arr[5] = {34, 556, 32, 24, 65};
-    int n = 5;
-    int i = 0;
-    int maxi = INT_MIN;
-    int mini = INT_MAX;
-    findMax(arr, n, i, maxi);
-    findMin(arr, n, i, mini);
+    // int arr[5] = {34, 556, 32, 24, 65};
+    // int n = 5;
+    // int i = 0;
+    // int maxi = INT_MIN;
+    // int mini = INT_MAX;
+    // findMax(arr, n, i, maxi);
+    // findMin(arr, n, i, mini);
 
-    cout << "Maximum number is " << maxi << endl;
-    cout << "Minimum number is " << mini << endl;
+    // cout << "Maximum number is " << maxi << endl;
+    // cout << "Minimum number is " << mini << endl;
+
+
+    // finding key in a  string 
+    string str = "ashish";
+    int n = str.length();
+
+    char key = 'h';
+    int i = 0;
+    bool ans = findKey(str, n, i, key);
+    cout << "Key is present or not " << ans << endl;
 
 
     return 0;
